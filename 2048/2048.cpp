@@ -54,7 +54,7 @@ public:
 			i = rand() % size;
 			j = rand() % size;
 		}
-		int k = rand() % 100;
+		int k = rand() % 100 + 1;
 		if (k > 20) {
 			
 			setValue(i, j, 2);
@@ -157,6 +157,7 @@ public:
 							setValue(y - 1, j, new_value);
 							setValue(y, j, 0);
 							addingScore += new_value;
+							break;
 						}
 						y--;
 					}
@@ -172,7 +173,7 @@ public:
 
 		for (int j = 0; j < size; j++) {
 
-			for (int i = size - 1; i >= 0; i--) {
+			for (int i = size - 2; i >= 0; i--) {
 
 				if (getValue(i, j) > 0) {
 
@@ -414,8 +415,29 @@ public:
 		currentMax = 0;
 		isGameOver = false;
 		map = new Map(size);
+
 		map->RandomSpawn();
 		map->RandomSpawn();
+
+		/*map->setValue(0, 0, 4);
+		map->setValue(1, 0, 32);
+		map->setValue(2, 0, 8);
+		map->setValue(3, 0, 2);
+
+		map->setValue(0, 1, 16);
+		map->setValue(1, 1, 4);
+		map->setValue(2, 1, 32);
+		map->setValue(3, 1, 4);
+
+		map->setValue(0, 2, 8);
+		map->setValue(1, 2, 64);
+		map->setValue(2, 2, 4);
+		map->setValue(3, 2, 8);
+		
+		map->setValue(0, 3, 4);
+		map->setValue(1, 3, 2);
+		map->setValue(2, 3, 2);
+		map->setValue(3, 3, 2);*/
 	}
 
 	void getAction() {
@@ -505,22 +527,31 @@ public:
 			differ = true;
 		}
 
-		expMap = *map;
-		expMap.moveRight();
-		if (*map != expMap) {
-			differ = true;
+		if (!differ) {
+
+			expMap = *map;
+			expMap.moveRight();
+			if (*map != expMap) {
+				differ = true;
+			}
 		}
 
-		expMap = *map;
-		expMap.moveUp();
-		if (*map != expMap) {
-			differ = true;
+		if (!differ) {
+
+			expMap = *map;
+			expMap.moveUp();
+			if (*map != expMap) {
+				differ = true;
+			}
 		}
 
-		expMap = *map;
-		expMap.moveDown();
-		if (*map != expMap) {
-			differ = true;
+		if (!differ) {
+
+			expMap = *map;
+			expMap.moveDown();
+			if (*map != expMap) {
+				differ = true;
+			}
 		}
 
 		if (differ == false) {
@@ -545,18 +576,21 @@ public:
 				goto_yx(size * 2 + 4, 0);
 				if (hasWon) {
 					textcolor(10);
-					cout << "You got 2048! Do you want to replay? (y/n): ";
+					cout << "You got 2048! Do you want to restart? (y/n): ";
 				}
 				else {
 					textcolor(12);
-					cout << "You lost! Do you want to replay? (y/n): ";
+					cout << "You lost! Do you want to restart? (y/n): ";
 				}
 				char c;
 				cin >> c;
-				if (c == 'y')
+				if (c == 'y') {
 					goto play;
-				else
+				}
+				else {
 					exit = true;
+					break;
+				}
 			}
 			getAction();
 			if (exit) goto out;
