@@ -1,0 +1,10 @@
+﻿  2048.cpp
+c:\users\user\desktop\2048\2048\2048.cpp(238): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+c:\users\user\desktop\2048\2048\2048.cpp(300): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\user\desktop\2048\2048\2048.cpp(424): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\user\desktop\2048\2048\2048.cpp(428): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\user\desktop\2048\2048\2048.cpp(432): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\user\desktop\2048\2048\2048.cpp(436): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\user\desktop\2048\2048\2048.cpp(440): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+  2048.vcxproj -> C:\Users\USER\Desktop\2048\Debug\2048.exe
+  2048.vcxproj -> C:\Users\USER\Desktop\2048\Debug\2048.pdb (Partial PDB)
